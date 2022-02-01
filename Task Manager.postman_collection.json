@@ -1,0 +1,521 @@
+{
+	"info": {
+		"_postman_id": "4f5a9aff-2581-4e5b-84b3-946e5d70118d",
+		"name": "Task Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set('authtoken', pm.response.json().token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"gaurav\",\n    \"age\": 22,\n    \"email\": \"gh@gmail.com\",\n    \"password\" : \"gauravharsule\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.environment.set('authtoken', pm.response.json().token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"anirudh99iyer@gmail.com\",\n    \"password\":\"anirudhiyer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/users/login/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\" : \"gh task 4 \",\n    \"completed\" : true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/task",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Tasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/task",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"task"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "skip",
+							"value": "0",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Task with Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/task/61f444789523b370d96da42a",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"task",
+						"61f444789523b370d96da42a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user with token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/users/me",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authentication",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWYwZjZhZTJiODk3YjYzNzk4ZjRkNTMiLCJpYXQiOjE2NDMxODE3NDJ9.eQoo4NMWjEg8LLUFBQ4f1xM0PEkbg9yy-loixv2-Oow",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "url/users/",
+							"host": [
+								"url"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "3871"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f1f-nirpif2m0qlQl54IsjB2M+PRpqM\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 26 Jan 2022 07:58:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"61ebb5aee648e608fc596ba3\",\n        \"name\": \"Anirudh\",\n        \"age\": 22,\n        \"__v\": 0,\n        \"tokens\": []\n    },\n    {\n        \"_id\": \"61ebc13e0ed2cc03d9e589f0\",\n        \"name\": \"Anirudh\",\n        \"email\": \"anirudh99iyer@gmail.com\",\n        \"age\": 22,\n        \"__v\": 0,\n        \"tokens\": []\n    },\n    {\n        \"_id\": \"61ebc340de368f10f1e2a371\",\n        \"name\": \"king virat\",\n        \"email\": \"kohlikingog@gmail.com\",\n        \"age\": 18,\n        \"__v\": 0,\n        \"password\": \"newnotkohliindcds\",\n        \"tokens\": []\n    },\n    {\n        \"_id\": \"61ebc37ca1cd0d06ffac3675\",\n        \"name\": \"viraat kohli\",\n        \"email\": \"vik@gmail.com\",\n        \"age\": 18,\n        \"__v\": 0,\n        \"tokens\": []\n    },\n    {\n        \"_id\": \"61ebc6a843c70c727bd852a4\",\n        \"name\": \"kl rahul\",\n        \"email\": \"kl@gmail.com\",\n        \"age\": 28,\n        \"password\": \"klthebest1903\",\n        \"__v\": 0,\n        \"tokens\": []\n    },\n    {\n        \"_id\": \"61ebe0808d6e03a88addf50d\",\n        \"name\": \"rohit sharma\",\n        \"email\": \"rs@gmail.com\",\n        \"age\": 35,\n        \"password\": \"cricket\",\n        \"__v\": 0,\n        \"tokens\": []\n    },\n    {\n        \"_id\": \"61ec497e27c041aac8ec5904\",\n        \"name\": \"chris gayle\",\n        \"email\": \"cg@gmail.com\",\n        \"age\": 40,\n        \"password\": \"cricket666\",\n        \"__v\": 0,\n        \"tokens\": []\n    },\n    {\n        \"_id\": \"61ee6956e5688cdd1e182e09\",\n        \"name\": \"international\",\n        \"email\": \"kohlikingog@gmail.com\",\n        \"age\": 40,\n        \"password\": \"$2a$08$y/m.OesIaJ1pLAJqtzIWYO//5lSwoN5odCB3utp67DSGyZt0XhZFi\",\n        \"__v\": 0,\n        \"tokens\": []\n    },\n    {\n        \"_id\": \"61ee69ddf938c864d79320ed\",\n        \"name\": \"internationalhahahha\",\n        \"email\": \"getting@gmail.com\",\n        \"age\": 40,\n        \"password\": \"$2a$08$Q.rCpeBIZtzc6HlqjglWout6IUJWDqigTkHA7ULVTt3cr8D1crZju\",\n        \"__v\": 0,\n        \"tokens\": []\n    },\n    {\n        \"_id\": \"61ee748d79dacbf716e15175\",\n        \"name\": \"parth\",\n        \"email\": \"pd@gmail.com\",\n        \"age\": 40,\n        \"password\": \"$2a$08$WJlMHW8cvEccat9IuudRxuj/OJVyIDvf3fBkJQ9N99oiuvEwYvT3K\",\n        \"__v\": 4,\n        \"tokens\": [\n            {\n                \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWVlNzQ4ZDc5ZGFjYmY3MTZlMTUxNzUiLCJpYXQiOjE2NDMwMjcyMzl9.H4GRMYBGDkWU6PiE0xy6C9Xz4HL5Yfm1qk0nTseY-KA\",\n                \"_id\": \"61ee9b27c90ba7d149d1ac07\"\n            },\n            {\n                \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWVlNzQ4ZDc5ZGFjYmY3MTZlMTUxNzUiLCJpYXQiOjE2NDMwMjczMDl9.wT7XKvxoi7xEn-v4BHW8VqTvq_uqlmFx2Z9hW1DG3es\",\n                \"_id\": \"61ee9b6dcf97b28694d408da\"\n            },\n            {\n                \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWVlNzQ4ZDc5ZGFjYmY3MTZlMTUxNzUiLCJpYXQiOjE2NDMwMjg3OTJ9.pUy3Fmo1gS4VsRl9pn8OCFFVlvkKM7Tb7pydAOt0XfU\",\n                \"_id\": \"61eea13830cc4827a9afebab\"\n            },\n            {\n                \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWVlNzQ4ZDc5ZGFjYmY3MTZlMTUxNzUiLCJpYXQiOjE2NDMwMjg4MjR9.W1R8oKsSbGFQpOMa9BIwosEphi0jBzTKAmiAL2tK9eE\",\n                \"_id\": \"61eea158c6b3e798c430fd17\"\n            }\n        ]\n    },\n    {\n        \"_id\": \"61eea22e1c7a056b13432c46\",\n        \"name\": \"gaurav\",\n        \"email\": \"gh@gmail.com\",\n        \"age\": 10,\n        \"password\": \"$2a$08$NqDR/nBjFg2C2aVwiKkP9.gWSc5JpueTIA4ihE1eqOmtifa5sY0iO\",\n        \"tokens\": [\n            {\n                \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWVlYTIyZTFjN2EwNTZiMTM0MzJjNDYiLCJpYXQiOjE2NDMwMjkwMzh9.UMhY8LPbQZV0BGacWw5eaC_4OMF_o3ON3xMab6kTq_g\",\n                \"_id\": \"61eea22e1c7a056b13432c47\"\n            },\n            {\n                \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWVlYTIyZTFjN2EwNTZiMTM0MzJjNDYiLCJpYXQiOjE2NDMxNzk5MTJ9.xniBgVgZeg5V8WABU0UqsuV_t0O4hGmfnxKrs4zXdoY\",\n                \"_id\": \"61f0ef886ed254e15a74ebdc\"\n            }\n        ],\n        \"__v\": 1\n    },\n    {\n        \"_id\": \"61f0f69e2b897b63798f4d4b\",\n        \"name\": \"vedand\",\n        \"email\": \"vp@gmail.com\",\n        \"age\": 10,\n        \"password\": \"$2a$08$A3KZiitG5lA8NKNHUTbLTuZ.vUrBKqgyqG/Nwn.d6Bjt4Z3ib6R7S\",\n        \"tokens\": [\n            {\n                \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWYwZjY5ZTJiODk3YjYzNzk4ZjRkNGIiLCJpYXQiOjE2NDMxODE3MjZ9.Hg4IpG_uUevYSXrS-N76GJCVmr8RFZ0OACx2AlRWrOU\",\n                \"_id\": \"61f0f69e2b897b63798f4d4c\"\n            }\n        ],\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61f0f6a62b897b63798f4d4f\",\n        \"name\": \"vedand\",\n        \"email\": \"vp@gmail.com\",\n        \"age\": 10,\n        \"password\": \"$2a$08$ukh/YpCMSkww1FTYX0.E/eUPvwxQiBIodVq6BCs1.OoAsRFJSt.US\",\n        \"tokens\": [\n            {\n                \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWYwZjZhNjJiODk3YjYzNzk4ZjRkNGYiLCJpYXQiOjE2NDMxODE3MzR9.UDytkVF6en6yB44g1Mo0Spui7LRjCMZoMEAY7QmPhq0\",\n                \"_id\": \"61f0f6a62b897b63798f4d50\"\n            }\n        ],\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"61f0f6ae2b897b63798f4d53\",\n        \"name\": \"vedand\",\n        \"email\": \"vp@gmail.com\",\n        \"age\": 10,\n        \"password\": \"$2a$08$pFHfEkcVml0QLQ2q4vzt1.VHIlXfSUYkODbatKJCWnEBZP42WN2l2\",\n        \"tokens\": [\n            {\n                \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWYwZjZhZTJiODk3YjYzNzk4ZjRkNTMiLCJpYXQiOjE2NDMxODE3NDJ9.eQoo4NMWjEg8LLUFBQ4f1xM0PEkbg9yy-loixv2-Oow\",\n                \"_id\": \"61f0f6ae2b897b63798f4d54\"\n            }\n        ],\n        \"__v\": 0\n    }\n]"
+				},
+				{
+					"name": "Get user with token",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/me",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "370"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"172-j7O2ohy9EpunSj+2KCA8KpqSgvI\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 28 Jan 2022 18:01:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"61f42f601fb96f4c6d5e2933\",\n    \"name\": \"nilesh\",\n    \"email\": \"nj@gmail.com\",\n    \"age\": 25,\n    \"password\": \"$2a$08$.FJ99DWvzIF/l/Fx3RP44.5dOq3HqV7DOYzXvnHSLnZiYZz/Q3fvS\",\n    \"tokens\": [\n        {\n            \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWY0MmY2MDFmYjk2ZjRjNmQ1ZTI5MzMiLCJpYXQiOjE2NDMzOTI4NjR9.Pq4w9gfK2CSUwIVFBFSXfl0TUlNSbF2KPtUIMBNSONc\",\n            \"_id\": \"61f42f601fb96f4c6d5e2935\"\n        }\n    ],\n    \"__v\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "Get User with Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/61ec497e27c041aac8ec5904",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"61ec497e27c041aac8ec5904"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User by Id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"age\" : 102\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/users/me",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Task by Id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"updated parth task 2\",\n    \"completed\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/task/61f444789523b370d96da42a",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"task",
+						"61f444789523b370d96da42a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User by Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/users/me",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Task by Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/task/61f4525bc51be730d80e0507",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"task",
+						"61f4525bc51be730d80e0507"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/logout",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout All tokens",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/logoutAll",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"logoutAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload avatar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "/Users/anirudhiyer/Downloads/node-course-images/profile-pic.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/user/me/avatar",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"me",
+						"avatar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/user/me/avatar",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user",
+						"me",
+						"avatar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{authtoken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
